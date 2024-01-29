@@ -25,6 +25,7 @@ function getPictureNode(name, nameOfPic, link) {
   const nameOfPicNode = document.createElement('p');
   const linkNode = document.createElement('img');
 
+  // укажем класс hidden, чтобы карточка появлялась скрытой
   container.className = 'picture-card hidden';
   nameNode.innerText = name;
   nameOfPicNode.innerText = nameOfPic;
@@ -32,6 +33,9 @@ function getPictureNode(name, nameOfPic, link) {
 
   container.append(nameNode, nameOfPicNode, linkNode);
 
+  // Удалим класс hidden, чтобы карточка появилась с анимацией
+  // Без setTimeout не получится, здесь пока не будем лезть глубоко в то как работает js
+  // вы поймёте этот момент позже
   setTimeout(() => {
     container.classList.remove('hidden');
   }, 0);
