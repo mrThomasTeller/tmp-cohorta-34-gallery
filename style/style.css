@@ -6,4 +6,5 @@
 #form{
     display: flex; /*элем с лева на право*/
     flex-direction: column;
+    width: 400px;
 }
