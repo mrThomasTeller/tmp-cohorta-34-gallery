@@ -7,4 +7,6 @@
     display: flex; /*элем с лева на право*/
     flex-direction: column;
     width: 400px;
+    border: 2px solid black;
+    border-radius: 10px;
 }
