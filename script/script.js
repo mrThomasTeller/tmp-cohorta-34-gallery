@@ -1,5 +1,21 @@
 const form = document.getElementById('form');
-const pictures = [];
+
+// задаём начальные карточки
+const pictures = [
+  {
+    name: 'Ван Гог',
+    nameOfPic: 'Звёздная ночь',
+    link: 'https://www.hse.ru/data/2017/05/17/1171369516/zvezdnoe_nebo.jpeg'
+  },
+  {
+    name: 'Босх',
+    nameOfPic:'Сад земных наслаждений',
+    link:'https://upload.wikimedia.org/wikipedia/commons/a/ae/El_jard%C3%ADn_de_las_Delicias%2C_de_El_Bosco.jpg'
+  }
+];
+
+// сразу рендерим начальные карточки на страницу
+rerender();
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -20,25 +36,17 @@ form.addEventListener('submit', (event) => {
 });
 
 function getPictureNode(name, nameOfPic, link) {
-  const container = document.createElement('div');
-  const nameNode = document.createElement('p');
-  const nameOfPicNode = document.createElement('p');
+  const container = document.createElement('article');
+  const nameNode = document.createElement('footer');
+  const nameOfPicNode = document.createElement('header');
   const linkNode = document.createElement('img');
 
-  // укажем класс hidden, чтобы карточка появлялась скрытой
-  container.className = 'picture-card hidden';
+  container.className = 'picture-card';
   nameNode.innerText = name;
   nameOfPicNode.innerText = nameOfPic;
   linkNode.src = link;
 
-  container.append(nameNode, nameOfPicNode, linkNode);
-
-  // Удалим класс hidden, чтобы карточка появилась с анимацией
-  // Без setTimeout не получится, здесь пока не будем лезть глубоко в то как работает js
-  // вы поймёте этот момент позже
-  setTimeout(() => {
-    container.classList.remove('hidden');
-  }, 0);
+  container.append(nameOfPicNode, linkNode, nameNode);
 
   return container;
 }

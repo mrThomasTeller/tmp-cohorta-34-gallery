@@ -7,4 +7,6 @@ git commit -m "message"
 git push
 
 git pull # скачать с сервера последние изменения
+
+git reset --hard # удалить незакоммиченные изменения
 ```
